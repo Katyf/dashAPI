@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :set_user, only: [:show,:update,:destroy]
 
   def login
-    user = User.find_by(username: params[:username])
+    user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       render json: user, status: :ok
     else
