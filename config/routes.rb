@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   resources :notes, except: [:new, :edit]
   resources :settings, except: [:new, :edit]
 
-  resources :users, defaults: {format: :json}, only: [:show, :index, :create] do
-    post 'sign_in', on: :collection
-  end
-
+  resources :users, except: [:new, :edit]
+  post '/login', to: 'users#login'
+  get '/logout', to: 'users#logout'
 end
