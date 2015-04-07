@@ -18,10 +18,12 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
+    @user = User.find(params[:user_id])
     @note = Note.new(note_params)
+    @user.notes << @note
 
     if @note.save
-      render json: @note, status: :created, location: @note
+      render json: @note, status: :created
     else
       render json: @note.errors, status: :unprocessable_entity
     end
