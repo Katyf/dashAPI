@@ -19,9 +19,11 @@ class SettingsController < ApplicationController
   # POST /settings.json
   def create
     @setting = Setting.new(setting_params)
+    @user = User.find(params[:user_id])
+    @user.settings << @setting
 
     if @setting.save
-      render json: @setting, status: :created, location: @setting
+      render json: @setting, status: :created
     else
       render json: @setting.errors, status: :unprocessable_entity
     end

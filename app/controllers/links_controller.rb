@@ -18,10 +18,12 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
+    @user = User.find(params[:user_id])
     @link = Link.new(link_params)
+    @user.links << @link
 
     if @link.save
-      render json: @link, status: :created, location: @link
+      render json: @link, status: :created
     else
       render json: @link.errors, status: :unprocessable_entity
     end
