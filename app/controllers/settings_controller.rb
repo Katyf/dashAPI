@@ -56,6 +56,6 @@ class SettingsController < ApplicationController
     end
 
     def setting_params
-      params.require(:setting).permit(:themes, :feeds, :User_id)
+      params.require(:setting).permit(:location, :User_id)
     end
 end

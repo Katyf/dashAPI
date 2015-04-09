@@ -1,3 +1,3 @@
 class SettingSerializer < ActiveModel::Serializer
-  attributes :themes, :feeds, :id, :locations, :user_id
+  attributes :id, :location, :user_id
 end
