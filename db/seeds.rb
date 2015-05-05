@@ -10,7 +10,7 @@ Note.destroy_all
 Link.destroy_all
 Quote.destroy_all
 
-test = User.create!(name: 'test', email: 'test@test.com', location: '02134', password: 'test', password_confirmation: 'test')
+test = User.create!(name: 'test', email: 'test@test.com', zipcode: '02134', password: 'test', password_confirmation: 'test')
 
 testnote = Note.create!(body: 'hello world')
 testlink = Link.create!(url: 'google.com')
